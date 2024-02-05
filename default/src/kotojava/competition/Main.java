@@ -7,20 +7,14 @@ public class Main {
     private static Map<Long, Long> memo = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println("user: " + fibonacci(Long.parseLong(args[0])));
+        System.out.println("user: " + calculateFactorial(Long.parseLong(args[0])));
     }
 
-    public static long fibonacci(long n) {
-        if (n <= 1) {
-            return n;
+    private static long calculateFactorial(long n) {
+        if (n == 0 || n == 1) {
+            return 1;
         } else {
-            if (memo.containsKey(n)) {
-                return memo.get(n);
-            } else {
-                long result = fibonacci(n - 1) + fibonacci(n - 2);
-                memo.put(n, result);
-                return result;
-            }
+            return n * calculateFactorial(n - 1);
         }
     }
 }
