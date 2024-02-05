@@ -7,7 +7,7 @@ public class Main {
     private static Map<Long, Long> memo = new HashMap<>();
 
     public static void main(String[] args) {
-        System.out.println("user: " + fibonacci(120));
+        System.out.println("user: " + fibonacci(Long.parseLong(args[0])));
     }
 
     public static long fibonacci(long n) {
