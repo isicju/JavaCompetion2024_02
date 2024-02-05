@@ -4,17 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
-    private static Map<Long, Long> memo = new HashMap<>();
-
     public static void main(String[] args) {
-        System.out.println("user: " + calculateFactorial(Long.parseLong(args[0])));
+        performIntensiveOperation(Integer.valueOf(args[0]));
     }
 
-    private static long calculateFactorial(long n) {
-        if (n == 0 || n == 1) {
-            return 1;
-        } else {
-            return n * calculateFactorial(n - 1);
+    private static void performIntensiveOperation(int iterations) {
+        for (int i = 0; i < iterations; i++) {
+            double result = Math.sqrt(Math.pow(Math.random(), 2) + Math.pow(Math.random(), 2));
         }
     }
 }
