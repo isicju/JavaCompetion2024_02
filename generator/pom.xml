@@ -36,6 +36,12 @@
     <build>
         <finalName>app</finalName>
         <sourceDirectory>src</sourceDirectory>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes><include>cities.txt</include></includes>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
