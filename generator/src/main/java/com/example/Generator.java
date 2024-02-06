@@ -13,7 +13,9 @@ import java.util.stream.Collectors;
 
 public class Generator {
     public static void main(String[] args) throws Exception {
-        generateRecords(1_000_000, readCities());
+        int limit = args.length > 0 ? Integer.parseInt(args[0]) : 1_000_000;
+        String finalDataLocation = args.length > 1 && args[1] != null && !args[0].isBlank() ? args[0] : "data.txt";
+        generateRecords(limit, readCities(), finalDataLocation);
     }
 
     private static List<String> readCities() throws Exception {
@@ -26,10 +28,9 @@ public class Generator {
         }
     }
 
-    private static void generateRecords(int limit, List<String> cityNames) {
-        String fileName = "data.txt";
+    private static void generateRecords(int limit, List<String> cityNames, String finalPath) {
         DecimalFormat decimalFormat = new DecimalFormat("#.###");
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(finalPath))) {
             for (int i = 1; i <= limit; i++) {
                 String line = i + "|" + generateCityName(cityNames, i) + "|" + decimalFormat.format(generateXValue(i)) + "|" +
                         decimalFormat.format(generateYValue(i)) + "|" + ((i == limit) ? "" : "\n");
