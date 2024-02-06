@@ -14,7 +14,7 @@ import java.util.stream.Collectors;
 public class Generator {
     public static void main(String[] args) throws Exception {
         int limit = args.length > 0 ? Integer.parseInt(args[0]) : 1_000_000;
-        String finalDataLocation = args.length > 1 && args[1] != null && !args[0].isBlank() ? args[0] : "data.txt";
+        String finalDataLocation = args.length > 1 && args[1] != null && !args[1].isBlank() ? args[1] : "data.txt";
         generateRecords(limit, readCities(), finalDataLocation);
     }
 
