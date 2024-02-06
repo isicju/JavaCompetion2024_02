@@ -2,9 +2,7 @@ package com.example;
 
 import main.java.com.example.CityData;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -19,8 +17,13 @@ public class Generator {
     }
 
     private static List<String> readCities() throws Exception {
-        URL url = Generator.class.getClassLoader().getResource("cities.txt");
-        return Files.lines(Paths.get(url.toURI()), StandardCharsets.UTF_8).collect(Collectors.toList());
+        try (InputStream inputStream = Generator.class.getClassLoader().getResourceAsStream("cities.txt")) {
+            if (inputStream == null) {
+                throw new FileNotFoundException("cities.txt not found in the classpath");
+            }
+            InputStreamReader reader = new InputStreamReader(inputStream, StandardCharsets.UTF_8);
+            return new BufferedReader(reader).lines().collect(Collectors.toList());
+        }
     }
 
     private static void generateRecords(int limit, List<String> cityNames) {
