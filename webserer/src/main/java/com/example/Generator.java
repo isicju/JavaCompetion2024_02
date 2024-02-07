@@ -44,9 +44,9 @@ public class Generator {
 
                 clientSocket.close();
                 counter.incrementAndGet();
-                if (counter.get() % 100 == 0) {
-                    System.out.println(counter.get());
-                }
+//                if (counter.get() % 100 == 0) {
+                    System.out.println(counter.incrementAndGet());
+//                }
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
