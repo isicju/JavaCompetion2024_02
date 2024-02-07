@@ -10,10 +10,19 @@ import io.netty.handler.codec.http.HttpHeaderValues;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.netty.handler.codec.http.HttpVersion;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class HighPerformanceHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
+
+    private static final AtomicInteger counter = new AtomicInteger(0);
+
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest request) throws Exception {
         // Prepare the response content
+        if(counter.incrementAndGet() % 100 == 0){
+            System.out.println(counter.get());
+        }
+
         ByteBuf content = ctx.alloc().buffer();
         content.writeBytes("Hello, World!".getBytes());
 
