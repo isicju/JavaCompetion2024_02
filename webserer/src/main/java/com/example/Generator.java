@@ -13,7 +13,7 @@ public class Generator {
         ServerSocket serverSocket = new ServerSocket(port);
         System.out.println("Server listening on port " + port);
 
-        ExecutorService executors = Executors.newFixedThreadPool(100);
+        ExecutorService executors = Executors.newVirtualThreadPerTaskExecutor();
 
         while (true) {
             Socket clientSocket = serverSocket.accept();
