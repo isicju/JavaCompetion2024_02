@@ -2,6 +2,7 @@ package com.example;
 
 import java.io.*;
 import java.net.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Generator {
     public static void main(String[] args) throws IOException {
@@ -18,6 +19,8 @@ public class Generator {
         }
     }
 
+    private static AtomicInteger counter = new AtomicInteger(0);
+
     private static class RequestHandler implements Runnable {
         private final Socket clientSocket;
 
@@ -29,9 +32,10 @@ public class Generator {
         public void run() {
             try {
                 PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);
-
                 String content = "Hello";
                 int contentLength = content.getBytes().length;
+
+                counter.incrementAndGet();
 
                 writer.println("HTTP/1.1 200 OK");
                 writer.println("Content-Type: text/plain");
@@ -40,6 +44,9 @@ public class Generator {
                 writer.println(content);
 
                 clientSocket.close();
+                if(counter.get()%500 ==0){
+                    System.out.println(counter.get());
+                }
             } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
