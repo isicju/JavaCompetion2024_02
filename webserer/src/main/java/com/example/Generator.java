@@ -12,7 +12,6 @@ public class Generator {
 
         while (true) {
             Socket clientSocket = serverSocket.accept();
-            System.out.println("Client connected: " + clientSocket.getInetAddress().getHostAddress());
 
             Thread thread = new Thread(new RequestHandler(clientSocket));
             thread.start();
