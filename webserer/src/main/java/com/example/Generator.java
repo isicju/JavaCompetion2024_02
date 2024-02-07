@@ -1,5 +1,7 @@
 package com.example;
 
+import main.java.com.example.netty.HelloWorldServer;
+
 import java.io.*;
 import java.net.*;
 import java.util.concurrent.ExecutorService;
@@ -7,18 +9,26 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Generator {
-    public static void main(String[] args) throws IOException {
-        int port = Integer.valueOf(args[0]);
+    public static void main(String[] args) throws Exception {
 
-        ServerSocket serverSocket = new ServerSocket(port);
-        System.out.println("Server listening on port " + port);
-
-        ExecutorService executors = Executors.newVirtualThreadPerTaskExecutor();
-
-        while (true) {
-            Socket clientSocket = serverSocket.accept();
-            executors.submit(new RequestHandler(clientSocket));
+        if("netty".equals(args[0])){
+            HelloWorldServer.main(null);
         }
+        else{
+//        int port = Integer.valueOf(args[0]);
+            int port = 4545;
+
+            ServerSocket serverSocket = new ServerSocket(port);
+            System.out.println("Server listening on port " + port);
+
+            ExecutorService executors = Executors.newVirtualThreadPerTaskExecutor();
+
+            while (true) {
+                Socket clientSocket = serverSocket.accept();
+                executors.submit(new RequestHandler(clientSocket));
+            }
+        }
+
     }
 
     private static AtomicInteger counter = new AtomicInteger(0);
