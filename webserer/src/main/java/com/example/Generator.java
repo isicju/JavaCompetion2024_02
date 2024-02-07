@@ -45,7 +45,6 @@ public class Generator {
                 writer.println(content);
 
                 clientSocket.close();
-                counter.incrementAndGet();
 //                if (counter.get() % 100 == 0) {
                     System.out.println(counter.incrementAndGet());
 //                }
