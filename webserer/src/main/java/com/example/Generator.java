@@ -30,10 +30,14 @@ public class Generator {
             try {
                 PrintWriter writer = new PrintWriter(clientSocket.getOutputStream(), true);
 
+                String content = "Hello";
+                int contentLength = content.getBytes().length;
+
                 writer.println("HTTP/1.1 200 OK");
                 writer.println("Content-Type: text/plain");
+                writer.println("Content-Length: " + contentLength);
                 writer.println();
-                writer.println("Hello");
+                writer.println(content);
 
                 clientSocket.close();
             } catch (IOException e) {
