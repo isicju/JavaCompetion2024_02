@@ -4,6 +4,7 @@ generator/target*/*
 target/*
 .idea/*
 default/target/*
+webserer/target/*
 # Log file
 *.log
 
