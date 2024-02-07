@@ -35,7 +35,6 @@ public class Generator {
                 String content = "Hello";
                 int contentLength = content.getBytes().length;
 
-                counter.incrementAndGet();
 
                 writer.println("HTTP/1.1 200 OK");
                 writer.println("Content-Type: text/plain");
@@ -44,7 +43,8 @@ public class Generator {
                 writer.println(content);
 
                 clientSocket.close();
-                if(counter.get()%500 ==0){
+                counter.incrementAndGet();
+                if (counter.get() % 100 == 0) {
                     System.out.println(counter.get());
                 }
             } catch (IOException e) {
