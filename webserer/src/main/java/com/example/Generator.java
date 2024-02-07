@@ -2,6 +2,8 @@ package com.example;
 
 import java.io.*;
 import java.net.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Generator {
@@ -11,11 +13,11 @@ public class Generator {
         ServerSocket serverSocket = new ServerSocket(port);
         System.out.println("Server listening on port " + port);
 
+        ExecutorService executors = Executors.newFixedThreadPool(100);
+
         while (true) {
             Socket clientSocket = serverSocket.accept();
-
-            Thread thread = new Thread(new RequestHandler(clientSocket));
-            thread.start();
+            executors.submit(new RequestHandler(clientSocket));
         }
     }
 
