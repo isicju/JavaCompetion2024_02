@@ -1,13 +1,8 @@
 package com.example;
 
-import main.java.com.example.CityData;
 
 import java.io.*;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.text.DecimalFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,11 +24,10 @@ public class Generator {
     }
 
     private static void generateRecords(int limit, List<String> cityNames, String finalPath) {
-        DecimalFormat decimalFormat = new DecimalFormat("#.###");
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(finalPath))) {
             for (int i = 1; i <= limit; i++) {
-                String line = i + "|" + generateCityName(cityNames, i) + "|" + decimalFormat.format(generateXValue(i)) + "|" +
-                        decimalFormat.format(generateYValue(i)) + "|" + ((i == limit) ? "" : "\n");
+                String line = i + "|" + generateCityName(cityNames, i) + "|" + generateXValue(i) + "|" +
+                        generateYValue(i) + "|" + ((i == limit) ? "" : "\n");
                 writer.write(line);
             }
         } catch (IOException e) {
@@ -53,12 +47,12 @@ public class Generator {
 
     }
 
-    private static double generateXValue(int i) {
-        return ((i * 3 - i ^ 2) % 200 / 12d + 33 - i * 31) % 1000;
+    private static int generateXValue(int i) {
+        return Math.abs((int) (((i * 3 - i ^ 2) % 200 / 12d + 33 - i * 31) % 1000));
     }
 
-    private static double generateYValue(int i) {
-        return ((i * 3 - i ^ 3) % 120 / 2d + 33 - i * 731) % 2000;
+    private static int generateYValue(int i) {
+        return Math.abs((int) (((i * 3 - i ^ 3) % 120 / 2d + 33 - i * 731) % 2000));
     }
 
 }

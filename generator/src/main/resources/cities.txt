@@ -6989,7 +6989,6 @@ Ampelokipoi
 Nuevo Casas Grandes
 Acatzingo
 Umm el Fahm
-Biel/Bienne
 Kidderminster
 Lipjan
 Coconut Creek
@@ -25317,7 +25316,6 @@ Banting
 Clemmons
 Liubotyn
 Soanindrariny
-Reichenbach/Vogtland
 Luckenwalde
 Bugalagrande
 Piedra Blanca
@@ -29906,7 +29904,6 @@ Clarksburg
 Gloria
 Shahpura
 Lere
-Lubbenau/Spreewald
 Paola
 Despujols
 Ambohibe
@@ -30286,7 +30283,6 @@ Molinella
 Crixas
 Saboeiro
 Silvi Paese
-Weisswasser/Oberlausitz
 Restinga Seca
 Funyan Bira
 Ershui
@@ -32094,7 +32090,6 @@ Nawada Gobindganj
 Barkuhi
 Lakinsk
 Artena
-West Nipissing / Nipissing Ouest
 Sidmouth
 Assenede
 Manoharpur
@@ -34399,7 +34394,6 @@ Pittalavanipalem
 Bretzfeld
 Levelland
 Chino Valley
-Guelph/Eramosa
 Puerto Jimenez
 Andernos-les-Bains
 Betma
@@ -34489,7 +34483,6 @@ Rosario del Tala
 Teroual
 Fonsorbes
 Taldom
-The Nation / La Nation
 Sonosari
 Chandwa
 Raia
