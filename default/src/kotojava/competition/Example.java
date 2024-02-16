@@ -41,7 +41,7 @@ public class Example {
     //todo change implementation
     private static void calculateStats(File file) throws IOException {
         List<String> cityRecords = Files.readAllLines(file.toPath());
-        double meanDistance = 0, maxDistance = 0, minDistance = 0;
+        double meanDistance = 0, maxDistance = 0, minDistance = Double.MAX_VALUE;
         String maxCity = "", minCity = "";
 
         for (String record : cityRecords) {
