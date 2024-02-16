@@ -38,7 +38,7 @@
                             <goal>single</goal>
                         </goals>
                         <configuration>
-                            <finalName>app</finalName>
+                            <finalName>${jarName}</finalName>
                             <archive>
                                 <manifest>
                                     <mainClass>kotojava.competition.${name}</mainClass>

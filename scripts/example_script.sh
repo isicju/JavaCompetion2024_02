@@ -1,1 +1,1 @@
-mvn clean -DjarName=dmitrii -Dname=Example install -f ./default/pom.xml
+mvn clean -DjarName=dmitrii -Dname=Example install  -f ../default/pom.xml
