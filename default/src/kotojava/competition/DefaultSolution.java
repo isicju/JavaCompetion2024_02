@@ -1,7 +1,6 @@
 package kotojava.competition;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,18 +12,35 @@ import static java.lang.Double.parseDouble;
 @AllArgsConstructor
 public class DefaultSolution {
 
+    //todo put your name and solution type
+    private static String participantName = "Dmitrii";
+    private static ParticipantExperience experience = ParticipantExperience.AFTER_JUNIOR;
+    private static SolutionType solutionType = SolutionType.REGULAR;
+
+    enum ParticipantExperience {
+        BEFORE_JUNIOR, AFTER_JUNIOR
+    }
+
+    enum SolutionType {
+        REGULAR, ADVANCED
+    }
+
     public static void main(String[] args) throws IOException {
-        String path = args[0];
-        File file = new File(path);
-        if (!file.exists()) {
-            System.out.println("file: " + args[0] + " not found");
+        if (args.length != 1) {
+            System.out.println("please specify data.txt location with all records.");
         } else {
-            // todo put your solution here.
-            calculateStats(Files.readAllLines(file.toPath()));
+            File file = new File(args[0]);
+            if (!file.exists()) {
+                System.out.println("file: " + file.getAbsoluteFile() + " not found");
+            } else {
+                calculateStats(file);
+            }
         }
     }
 
-    private static void calculateStats(List<String> cityRecords) {
+    //change implementation
+    private static void calculateStats(File file) throws IOException {
+        List<String> cityRecords = Files.readAllLines(file.toPath());
         double meanDistance = 0, maxDistance = 0, minDistance = 0;
         String maxCity = "", minCity = "";
 
@@ -47,18 +63,15 @@ public class DefaultSolution {
         }
         meanDistance = meanDistance / (double) cityRecords.size();
 
-        //                                                  todo     put your name and solution type
-        printResults(minCity, maxCity, meanDistance, "dmitrii", SolutionType.REGULAR);
+        printResults(minCity, maxCity, meanDistance);
     }
 
-    private static void printResults(String minCity, String maxCity, double meanDistance, String participantNickName, SolutionType type) {
+    private static void printResults(String minCity, String maxCity, double meanDistance) {
         System.out.println("min|max|mean|name|group");
-        System.out.println(minCity + "|" + maxCity + "|" + meanDistance + "|" + participantNickName + "|" + type);
+        System.out.println(minCity + "|" + maxCity + "|" + meanDistance + "|" + participantName + "|" + experience + "|" + solutionType);
     }
 
-    enum SolutionType {
-        REGULAR, ADVANCED
-    }
+
 
     private static double distance(double x, double y) {
         return Math.sqrt(x * x + y * y);

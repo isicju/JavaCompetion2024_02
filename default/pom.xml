@@ -12,10 +12,6 @@
         <maven.compiler.target>21</maven.compiler.target>
 
         <!--suppress UnresolvedMavenProperty -->
-        <assembly.executionId>${execId}</assembly.executionId>
-        <!--suppress UnresolvedMavenProperty -->
-        <assembly.finalName>${finalName}</assembly.finalName>
-        <!--suppress UnresolvedMavenProperty -->
         <assembly.mainClass>${mainClass}</assembly.mainClass>
     </properties>
         <dependencies>
@@ -34,13 +30,13 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>${assembly.executionId}</id>
+                        <id>assemble-first</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
                         <configuration>
-                            <finalName>${assembly.finalName}</finalName>
+                            <finalName>app</finalName>
                             <archive>
                                 <manifest>
                                     <mainClass>${assembly.mainClass}</mainClass>
