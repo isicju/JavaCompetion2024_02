@@ -10,6 +10,13 @@
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
+
+        <!--suppress UnresolvedMavenProperty -->
+        <assembly.executionId>${execId}</assembly.executionId>
+        <!--suppress UnresolvedMavenProperty -->
+        <assembly.finalName>${finalName}</assembly.finalName>
+        <!--suppress UnresolvedMavenProperty -->
+        <assembly.mainClass>${mainClass}</assembly.mainClass>
     </properties>
         <dependencies>
             <dependency>
@@ -27,16 +34,16 @@
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
                     <execution>
+                        <id>${assembly.executionId}</id>
                         <phase>package</phase>
                         <goals>
                             <goal>single</goal>
                         </goals>
                         <configuration>
+                            <finalName>${assembly.finalName}</finalName>
                             <archive>
                                 <manifest>
-                                    <mainClass>
-                                        kotojava.competition.Main
-                                    </mainClass>
+                                    <mainClass>${assembly.mainClass}</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>
@@ -44,6 +51,7 @@
                             </descriptorRefs>
                         </configuration>
                     </execution>
+
                 </executions>
             </plugin>
         </plugins>

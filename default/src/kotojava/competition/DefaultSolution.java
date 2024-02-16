@@ -1,4 +1,7 @@
-package kotojava.competition.groupa;
+package kotojava.competition;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,6 +10,7 @@ import java.util.List;
 
 import static java.lang.Double.parseDouble;
 
+@AllArgsConstructor
 public class DefaultSolution {
 
     public static void main(String[] args) throws IOException {
