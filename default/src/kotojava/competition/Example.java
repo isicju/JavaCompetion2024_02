@@ -38,7 +38,7 @@ public class Example {
         }
     }
 
-    //change implementation
+    //todo change implementation
     private static void calculateStats(File file) throws IOException {
         List<String> cityRecords = Files.readAllLines(file.toPath());
         double meanDistance = 0, maxDistance = 0, minDistance = 0;

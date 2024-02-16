@@ -12,6 +12,8 @@
         <maven.compiler.target>21</maven.compiler.target>
 
         <!--suppress UnresolvedMavenProperty -->
+        <jarName>${mainClass}</jarName>
+        <!--suppress UnresolvedMavenProperty -->
         <name>${mainClass}</name>
     </properties>
         <dependencies>
@@ -22,7 +24,7 @@
             </dependency>
         </dependencies>
     <build>
-        <finalName>app</finalName>
+        <finalName>${jarName}</finalName>
         <sourceDirectory>src</sourceDirectory>
         <plugins>
             <plugin>
