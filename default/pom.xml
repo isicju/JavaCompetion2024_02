@@ -12,7 +12,7 @@
         <maven.compiler.target>21</maven.compiler.target>
 
         <!--suppress UnresolvedMavenProperty -->
-        <mainClass>${mainClass}</mainClass>
+        <name>${mainClass}</name>
     </properties>
         <dependencies>
             <dependency>
@@ -39,7 +39,7 @@
                             <finalName>app</finalName>
                             <archive>
                                 <manifest>
-                                    <mainClass>kotojava.competition.${mainClass}</mainClass>
+                                    <mainClass>kotojava.competition.${name}</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

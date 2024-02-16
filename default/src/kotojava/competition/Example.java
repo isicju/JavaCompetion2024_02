@@ -10,7 +10,7 @@ import java.util.List;
 import static java.lang.Double.parseDouble;
 
 @AllArgsConstructor
-public class DefaultSolution {
+public class Example {
 
     //todo put your name and solution type
     private static String participantName = "Dmitrii";
