@@ -12,8 +12,6 @@ import static java.lang.Double.parseDouble;
 @AllArgsConstructor
 public class example2 {
 
-    //todo put your name and solution type
-    private static String participantName = "Dmitrii";
     private static ParticipantExperience experience = ParticipantExperience.AFTER_JUNIOR;
     private static SolutionType solutionType = SolutionType.REGULAR;
 
@@ -68,7 +66,7 @@ public class example2 {
 
     private static void printResults(String minCity, String maxCity, double meanDistance) {
         System.out.println("min|max|mean|name|group");
-        System.out.println(minCity + "|" + maxCity + "|" + meanDistance + "|" + participantName + "|" + experience + "|" + solutionType);
+        System.out.println(minCity + "|" + maxCity + "|" + meanDistance + "|" + experience + "|" + solutionType);
     }
 
     private static double distance(double x, double y) {
