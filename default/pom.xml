@@ -10,11 +10,8 @@
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-
         <!--suppress UnresolvedMavenProperty -->
         <jarName>${mainClass}</jarName>
-        <!--suppress UnresolvedMavenProperty -->
-        <name>${mainClass}</name>
     </properties>
         <dependencies>
             <dependency>
@@ -41,7 +38,7 @@
                             <finalName>${jarName}</finalName>
                             <archive>
                                 <manifest>
-                                    <mainClass>kotojava.competition.${name}</mainClass>
+                                    <mainClass>kotojava.competition.${jarName}</mainClass>
                                 </manifest>
                             </archive>
                             <descriptorRefs>

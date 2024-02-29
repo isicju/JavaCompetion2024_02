@@ -10,7 +10,7 @@ import java.util.List;
 import static java.lang.Double.parseDouble;
 
 @AllArgsConstructor
-public class Example {
+public class example {
 
     //todo put your name and solution type
     private static String participantName = "Dmitrii";
@@ -70,8 +70,6 @@ public class Example {
         System.out.println("min|max|mean|name|group");
         System.out.println(minCity + "|" + maxCity + "|" + meanDistance + "|" + participantName + "|" + experience + "|" + solutionType);
     }
-
-
 
     private static double distance(double x, double y) {
         return Math.sqrt(x * x + y * y);
